@@ -8,14 +8,20 @@ namespace Self_Organizing_Map.Model
 {
     public class SelfOrganizingMapAlgorithm
     {
-        public static InputDataSet InputDataSet { get; set; }
-        public static NeuralNetwork NeuralNetwork { get; set; }
+        public InputDataSet InputDataSet { get; set; }
+        public NeuralNetwork NeuralNetwork { get; set; }
+        public int IterationLimit { get; set; }
 
-        public static void Run(InputDataSet inputDataSet, int NeuralNetworkRows, int NeuralNetworkColumns)
+        public void Run(InputDataSet inputDataSet, int NeuralNetworkRows, int NeuralNetworkColumns, int iterationLimit)
+        {
+            SetParameters(inputDataSet, iterationLimit);
+            NeuralNetwork = new NeuralNetwork(NeuralNetworkRows, NeuralNetworkColumns, inputDataSet.InputVectorDimension);
+        }
+
+        private void SetParameters(InputDataSet inputDataSet, int iterationLimit)
         {
             InputDataSet = inputDataSet;
-            NeuralNetwork = new NeuralNetwork(NeuralNetworkRows, NeuralNetworkColumns, inputDataSet.InputVectorDimension);
-
+            IterationLimit = iterationLimit;
         }
     }
 }

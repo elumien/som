@@ -17,8 +17,6 @@ namespace Self_Organizing_Map
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Neuron n = new Neuron(3);
-            //ColorInputDataItem.GenerateRandomColorInputDataItem();
             Application.Run(new MainForm());
         }
     }
