@@ -28,7 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.baseInputPanel.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // startButton
+            // 
+            this.startButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
             // ColorForm
             // 
@@ -37,6 +42,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "ColorForm";
             this.Text = "Color Self-Organizing Map";
+            this.baseInputPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

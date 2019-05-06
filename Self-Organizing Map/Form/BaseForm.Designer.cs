@@ -28,20 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.baseInputPanel = new System.Windows.Forms.Panel();
+            this.startButton = new System.Windows.Forms.Button();
+            this.baseInputPanel.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // baseInputPanel
+            // 
+            this.baseInputPanel.Controls.Add(this.startButton);
+            this.baseInputPanel.Location = new System.Drawing.Point(12, 188);
+            this.baseInputPanel.Name = "baseInputPanel";
+            this.baseInputPanel.Size = new System.Drawing.Size(350, 250);
+            this.baseInputPanel.TabIndex = 0;
+            // 
+            // startButton
+            // 
+            this.startButton.Location = new System.Drawing.Point(138, 214);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(75, 23);
+            this.startButton.TabIndex = 0;
+            this.startButton.Text = "Start";
+            this.startButton.UseVisualStyleBackColor = true;
             // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.baseInputPanel);
             this.Name = "BaseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Self-Organizing Map";
+            this.baseInputPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        protected System.Windows.Forms.Panel baseInputPanel;
+        protected System.Windows.Forms.Button startButton;
     }
 }

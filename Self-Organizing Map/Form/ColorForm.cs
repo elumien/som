@@ -16,5 +16,15 @@ namespace Self_Organizing_Map
         {
             InitializeComponent();
         }
+
+        private void StartButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CreateColorInputDataSet()
+        {
+
+        }
     }
 }

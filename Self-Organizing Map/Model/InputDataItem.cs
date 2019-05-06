@@ -11,10 +11,9 @@ namespace Self_Organizing_Map.Model
     {
         public Vector<double> InputVector { get; set; }
 
-        public InputDataItem()
-        {
+        protected static Random random = new Random();
 
-        }
+        public InputDataItem() { }
 
         public InputDataItem(Vector<double> inputVector)
         {

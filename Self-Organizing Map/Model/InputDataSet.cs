@@ -12,9 +12,7 @@ namespace Self_Organizing_Map.Model
 
         protected static Random random = new Random();
 
-        public InputDataSet()
-        {
-        }
+        public InputDataSet() { }
 
         public InputDataSet(List<InputDataItem> inputDataItems)
         {
