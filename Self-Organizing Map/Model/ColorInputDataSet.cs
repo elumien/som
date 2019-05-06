@@ -8,20 +8,18 @@ namespace Self_Organizing_Map.Model
 {
     class ColorInputDataSet : InputDataSet
     {
-        public ColorInputDataSet() : base() { }
+        public ColorInputDataSet(List<InputDataItem> inputDataItems, int inputVectorDimension, int inputVectorNumber) : base(inputDataItems, inputVectorDimension, inputVectorNumber) { }
 
-        public ColorInputDataSet(List<InputDataItem> inputDataItems) : base(inputDataItems) { }
-
-        public static ColorInputDataSet GenerateRandomColorInputDataSet(int colorNumber)
+        public static ColorInputDataSet GenerateRandomColorInputDataSet(int inputVectorNumber)
         {
-            ColorInputDataSet colorInputDataSet = new ColorInputDataSet();
+            List<InputDataItem> inputDataItems = new List<InputDataItem>(); 
 
-            for (int i = 0; i < colorNumber; i++)
+            for (int i = 0; i < inputVectorNumber; i++)
             {
-                colorInputDataSet.InputDataItems.Add(ColorInputDataItem.GenerateRandomColorInputDataItem());
+                inputDataItems.Add(ColorInputDataItem.GenerateRandomColorInputDataItem());
             }
 
-            return colorInputDataSet;
+            return new ColorInputDataSet(inputDataItems, ColorInputDataItem.RGB_COLOR_VECTOR_DIMENSION, inputVectorNumber);
         }
     }
 }

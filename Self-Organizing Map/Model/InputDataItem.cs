@@ -7,13 +7,9 @@ using System.Threading.Tasks;
 
 namespace Self_Organizing_Map.Model
 {
-    abstract class InputDataItem
+    public abstract class InputDataItem
     {
         public Vector<double> InputVector { get; set; }
-
-        protected static Random random = new Random();
-
-        public InputDataItem() { }
 
         public InputDataItem(Vector<double> inputVector)
         {

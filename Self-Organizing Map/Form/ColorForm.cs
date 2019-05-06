@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Self_Organizing_Map.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace Self_Organizing_Map
 {
     public partial class ColorForm : BaseForm
     {
+        public const int COLOR_NUMBER = 8;
+
         public ColorForm()
         {
             InitializeComponent();
@@ -19,12 +22,8 @@ namespace Self_Organizing_Map
 
         private void StartButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void CreateColorInputDataSet()
-        {
-
+            ColorInputDataSet colorInputDataSet = ColorInputDataSet.GenerateRandomColorInputDataSet(COLOR_NUMBER);
+            SelfOrganizingMapAlgorithm.Run(colorInputDataSet);
         }
     }
 }

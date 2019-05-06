@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 
 namespace Self_Organizing_Map.Model
 {
-    abstract class InputDataSet
+    public abstract class InputDataSet
     {
         public List<InputDataItem> InputDataItems { get; set; }
+        public int InputVectorDimension { get; set; }
+        public int InputVectorNumber { get; set; }
 
-        protected static Random random = new Random();
-
-        public InputDataSet() { }
-
-        public InputDataSet(List<InputDataItem> inputDataItems)
+        protected InputDataSet(List<InputDataItem> inputDataItems, int inputVectorDimension, int inputVectorNumber)
         {
             InputDataItems = inputDataItems;
+            InputVectorDimension = inputVectorDimension;
+            InputVectorNumber = inputVectorNumber;
         }
+
     }
 }

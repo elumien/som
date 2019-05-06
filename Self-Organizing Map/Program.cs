@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Self_Organizing_Map.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,9 @@ namespace Self_Organizing_Map
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            //Neuron n = new Neuron(3);
+            ColorInputDataItem.GenerateRandomColorInputDataItem();
+            //Application.Run(new MainForm());
         }
     }
 }

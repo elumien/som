@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MathNet.Numerics.Distributions;
 using MathNet.Numerics.LinearAlgebra;
 
 namespace Self_Organizing_Map.Model
@@ -11,9 +12,7 @@ namespace Self_Organizing_Map.Model
     {
         public const int RGB_COLOR_VECTOR_DIMENSION = 3;
 
-        public ColorInputDataItem() : base() { }
-
-        public ColorInputDataItem(Vector<double> vector) : base(vector) { }
+        public ColorInputDataItem(Vector<double> inputVector) : base(inputVector) { }
 
         public ColorInputDataItem(double red, double green, double blue) : base(GenerateColorInputVector(red, green, blue)) { }
 
@@ -28,16 +27,11 @@ namespace Self_Organizing_Map.Model
 
         public static ColorInputDataItem GenerateRandomColorInputDataItem()
         {
-            ColorInputDataItem colorInputDataItem = new ColorInputDataItem();
+            Vector<double> inputVector = Vector<double>.Build.Random(RGB_COLOR_VECTOR_DIMENSION, new ContinuousUniform(0, 1)).Normalize(2);
 
-            for (int i = 0; i < RGB_COLOR_VECTOR_DIMENSION; i++)
-            {
-                colorInputDataItem.InputVector.At(i, random.NextDouble());
-            }
+            System.Console.WriteLine(inputVector.ToVectorString());
 
-            colorInputDataItem.InputVector = colorInputDataItem.InputVector.Normalize(2);
-
-            return colorInputDataItem;
+            return new ColorInputDataItem(inputVector);
         }
     }
 }

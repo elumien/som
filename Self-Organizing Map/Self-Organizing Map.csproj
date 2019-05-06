@@ -79,6 +79,9 @@
     <Compile Include="Model\ColorInputDataSet.cs" />
     <Compile Include="Model\InputDataItem.cs" />
     <Compile Include="Model\InputDataSet.cs" />
+    <Compile Include="Model\NeuralNetwork.cs" />
+    <Compile Include="Model\Neuron.cs" />
+    <Compile Include="Model\SelfOrganizingMapAlgorithm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Form\WordForm.cs">
