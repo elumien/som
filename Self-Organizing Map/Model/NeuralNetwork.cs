@@ -11,7 +11,7 @@ namespace Self_Organizing_Map.Model
         public Neuron[,] Neurons { get; set; }
         public int Rows { get; }
         public int Columns { get; }
-        public InputDataSet InputDataSet { get; set; }
+        public int WeightVectorDimension { get; set; }
 
         public NeuralNetwork(int rows, int columns, int vectorDimension)
         {

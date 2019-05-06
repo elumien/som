@@ -29,8 +29,6 @@ namespace Self_Organizing_Map.Model
         {
             Vector<double> inputVector = Vector<double>.Build.Random(RGB_COLOR_VECTOR_DIMENSION, new ContinuousUniform(0, 1)).Normalize(2);
 
-            System.Console.WriteLine(inputVector.ToVectorString());
-
             return new ColorInputDataItem(inputVector);
         }
     }

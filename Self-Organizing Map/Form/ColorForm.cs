@@ -14,6 +14,8 @@ namespace Self_Organizing_Map
     public partial class ColorForm : BaseForm
     {
         public const int COLOR_NUMBER = 8;
+        public const int NEURAL_NETWORK_ROWS = 40;
+        public const int NEURAL_NETWORK_COLUMNS = 40;
 
         public ColorForm()
         {
@@ -23,7 +25,7 @@ namespace Self_Organizing_Map
         private void StartButton_Click(object sender, EventArgs e)
         {
             ColorInputDataSet colorInputDataSet = ColorInputDataSet.GenerateRandomColorInputDataSet(COLOR_NUMBER);
-            SelfOrganizingMapAlgorithm.Run(colorInputDataSet);
+            SelfOrganizingMapAlgorithm.Run(colorInputDataSet, NEURAL_NETWORK_ROWS, NEURAL_NETWORK_COLUMNS);
         }
     }
 }

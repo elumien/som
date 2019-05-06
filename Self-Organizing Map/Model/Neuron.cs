@@ -15,8 +15,6 @@ namespace Self_Organizing_Map.Model
         public Neuron(int vectorDimension)
         {
             WeightVector = Vector<double>.Build.Random(vectorDimension, new ContinuousUniform(0, 1));
-
-            System.Console.WriteLine(WeightVector.ToVectorString());
         }
     }
 }
