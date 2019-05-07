@@ -9,14 +9,21 @@ namespace Self_Organizing_Map.Model
     public abstract class InputDataSet
     {
         public List<InputDataItem> InputDataItems { get; set; }
+        public int InputDataItemNumber { get; set; }
         public int InputVectorDimension { get; set; }
-        public int InputVectorNumber { get; set; }
 
-        protected InputDataSet(List<InputDataItem> inputDataItems, int inputVectorDimension, int inputVectorNumber)
+        private static Random random = new Random();
+        
+        protected InputDataSet(List<InputDataItem> inputDataItems, int inputVectorDimension, int inputDataItemNumber)
         {
             InputDataItems = inputDataItems;
             InputVectorDimension = inputVectorDimension;
-            InputVectorNumber = inputVectorNumber;
+            InputDataItemNumber = inputDataItemNumber;
+        }
+
+        public InputDataItem SelectRandomInputItem()
+        {
+            return InputDataItems.ElementAt(random.Next(InputDataItemNumber));
         }
 
     }

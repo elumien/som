@@ -28,9 +28,9 @@ namespace Self_Organizing_Map
         {
             iterationLimit = (int)iterationLimitNumericUpDown.Value;
 
-
             ColorInputDataSet colorInputDataSet = ColorInputDataSet.GenerateRandomColorInputDataSet(COLOR_NUMBER);
-            SelfOrganizingMapAlgorithm.Run(colorInputDataSet, NEURAL_NETWORK_ROWS, NEURAL_NETWORK_COLUMNS, iterationLimit);
+            SelfOrganizingMapAlgorithm somAlgorithm = new SelfOrganizingMapAlgorithm();
+            somAlgorithm.Run(colorInputDataSet, NEURAL_NETWORK_ROWS, NEURAL_NETWORK_COLUMNS, iterationLimit);
         }
     }
 }
