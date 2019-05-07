@@ -18,10 +18,10 @@ namespace Self_Organizing_Map.Model
 
         public void Run(InputDataSet inputDataSet, int NeuralNetworkRows, int NeuralNetworkColumns, int iterationLimit)
         {
-            SetParameters(inputDataSet, iterationLimit);
+            SetParameters(inputDataSet, IterationLimit);
             NeuralNetwork = new NeuralNetwork(NeuralNetworkRows, NeuralNetworkColumns, inputDataSet.InputVectorDimension);
 
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < IterationLimit; i++)
             {
                 InputVector = InputDataSet.SelectRandomInputItem().InputVector;
                 CalculateBestMatchingUnit();
@@ -29,12 +29,10 @@ namespace Self_Organizing_Map.Model
             }
         }
 
-        private void UpdateWeightVectors()
+        private void SetParameters(InputDataSet inputDataSet, int iterationLimit)
         {
-            foreach (var neuron in NeuralNetwork.Neurons)
-            {
-
-            }
+            InputDataSet = inputDataSet;
+            IterationLimit = iterationLimit;
         }
 
         private void CalculateBestMatchingUnit()
@@ -54,10 +52,20 @@ namespace Self_Organizing_Map.Model
             }
         }
 
-        private void SetParameters(InputDataSet inputDataSet, int iterationLimit)
+        private void CalculateNeighborhoodFunction() { }
+
+        private void LearningRateCoefficient() { }
+
+        private void UpdateWeightVectors()
         {
-            InputDataSet = inputDataSet;
-            IterationLimit = iterationLimit;
+            foreach (var neuron in NeuralNetwork.Neurons)
+            {
+
+            }
         }
+
+
+
+
     }
 }
