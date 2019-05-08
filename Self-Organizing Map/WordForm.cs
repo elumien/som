@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Self_Organizing_Map.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace Self_Organizing_Map
         public WordForm()
         {
             InitializeComponent();
+        }
+
+        private void StartButton_Click(object sender, EventArgs e)
+        {
+            WordInputDataSet wordInputDataSet = new WordInputDataSet(null, 0, 0);
+            wordInputDataSet.ProcessText();
+
         }
     }
 }

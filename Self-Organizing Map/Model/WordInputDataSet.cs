@@ -22,15 +22,15 @@ namespace Self_Organizing_Map.Model
         {
             List<string> tokenizedText = CreateWordListFromTxt("../../Resource/token.txt");
             List<string> stopWords = CreateWordListFromTxt("../../Resource/stopword.txt");
-            List<string> stopWordsFreeText = (List<string>)tokenizedText.Except(stopWords);
-            List<string> distinctWords = (List<string>)stopWordsFreeText.Distinct<string>();
-            List<string> mostFrequentWord = GetMostFrequentWords(stopWordsFreeText, MOST_FREQUENT_WORD_NUMBER);
-            VocabularySize = distinctWords.Count();
+            IEnumerable<string> stopWordsFreeTextEnumerable = tokenizedText.Except(stopWords);
+            List<string> stopWordsFreeText = stopWordsFreeTextEnumerable.ToList<string>();
+            IEnumerable<string> distinctWordsEnumerable = stopWordsFreeText.Distinct<string>();
+            //List<string> mostFrequentWords = GetMostFrequentWords(stopWordsFreeText, MOST_FREQUENT_WORD_NUMBER);
+            //VocabularySize = distinctWords.Count();
 
-            List<WordInputDataItem> symbolCodes = CreateSymbolCodes(distinctWords);
-            List<WordInputDataItem> contexts = CreateAttributeFields(stopWordsFreeText, symbolCodes, mostFrequentWord);
-            //ToDo             Context[] contexts = CreateAttributeFields(words, symbolCodes, topWords);
-            //AverageContext[] averageContexts = AverageAttributeFields(symbolCodes, contexts, topWords);
+            //List<WordInputDataItem> symbolCodes = CreateSymbolCodes(distinctWords);
+            //List<WordInputDataItem> contexts = CreateAttributeFields(stopWordsFreeText, symbolCodes, mostFrequentWords);
+            //List<WordInputDataItem> averageContexts = CalculateAverageAttributeFields(symbolCodes, contexts, mostFrequentWords);
             //Input[] inputs = CreateInput(symbolCodes, averageContexts)
 
         }
@@ -129,7 +129,7 @@ namespace Self_Organizing_Map.Model
             return symbolCodes;
         }
 
-        public List<WordInputDataItem> CreateAttributeFields(List<string> words, List<WordInputDataItem> symbolCodes, List<string> topWords)
+        public List<WordInputDataItem> CreateAttributeFields(List<string> words, List<WordInputDataItem> symbolCodes, List<string> mostFrequentWords)
         {
             int numberOfWords = words.Count();
 
@@ -137,7 +137,7 @@ namespace Self_Organizing_Map.Model
 
             for (int i = 1; i < numberOfWords - 1; i++)
             {
-                if (topWords.Where(w => w == words[i]).Count() != 0)
+                if (mostFrequentWords.Where(w => w == words[i]).Count() != 0)
                 {
                     string prewWord = words[i - 1];
                     string currWord = words[i];
@@ -153,6 +153,32 @@ namespace Self_Organizing_Map.Model
                 }
             }
             return contextsList;
+        }
+
+        private List<WordInputDataItem> CalculateAverageAttributeFields(List<WordInputDataItem> symbolCodes, List<WordInputDataItem> contexts, List<string> mostFrequentWords)
+        {
+            int numberOfTopWords = mostFrequentWords.Count;
+            int numberOfDistinctWords = symbolCodes.Count();
+
+            List<WordInputDataItem> averageContexts = new List<WordInputDataItem>(numberOfTopWords);
+
+            string word;
+            int index = 0;
+
+            for (int i = 0; i < numberOfDistinctWords; i++)
+            {
+                word = symbolCodes[i].Word;
+
+                int wordcount = mostFrequentWords.Where(w => w == word).Count();
+                if (wordcount != 0)
+                {
+                    List<WordInputDataItem> wordContexts = contexts.Where(w => w.Word == word).ToList<WordInputDataItem>();
+                    averageContexts[index] = new WordInputDataItem(wordContexts);
+                    index++;
+                }
+            }
+            return averageContexts;
+
         }
     }
 }

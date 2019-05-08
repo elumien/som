@@ -44,5 +44,44 @@ namespace Self_Organizing_Map.Model
             }
         }
 
+        public WordInputDataItem(List<WordInputDataItem> wordContexts)
+        {
+            int dimension = wordContexts[0].InputVector.Count;
+            Word = wordContexts[0].Word;
+
+            int numberOfContexts = wordContexts.Count();
+
+            double[,] vectors = new double[numberOfContexts, dimension];
+
+            for (int x = 0; x < numberOfContexts; x++)
+            {
+                Vector<double> currentVector = wordContexts[x].InputVector;
+
+                for (int y = 0; y < dimension; y++)
+                {
+                    vectors[x, y] = currentVector.At(y);
+                }
+            }
+
+            InputVector = GetAverageVector(vectors, numberOfContexts, dimension);
+        }
+
+        private Vector<double> GetAverageVector(double[,] vectors, int numberOfVectors, int dimension)
+        {
+            Vector<double> averageVector = Vector<double>.Build.Dense(dimension);
+            for (int y = 0; y < dimension; y++)
+            {
+                double sum = 0;
+
+                for (int x = 0; x < numberOfVectors; x++)
+                {
+                    sum += vectors[x, y];
+                }
+
+                averageVector[y] = sum / numberOfVectors;
+            }
+
+            return averageVector;
+        }
     }
 }

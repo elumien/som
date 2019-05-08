@@ -28,7 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.baseInputPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iterationLimitNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.initialLearningRateCoefficientNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.finalStandardDeviationNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.initialStandardDeviationNumericUpDown)).BeginInit();
             this.SuspendLayout();
+            // 
+            // startButton
+            // 
+            this.startButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
             // WordForm
             // 
@@ -37,6 +46,12 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "WordForm";
             this.Text = "Word Self-Organizing Map";
+            this.baseInputPanel.ResumeLayout(false);
+            this.baseInputPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iterationLimitNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.initialLearningRateCoefficientNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.finalStandardDeviationNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.initialStandardDeviationNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
