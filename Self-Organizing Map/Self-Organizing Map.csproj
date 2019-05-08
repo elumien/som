@@ -57,6 +57,12 @@
     <Compile Include="Control\ColorNeuronControl.Designer.cs">
       <DependentUpon>ColorNeuronControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Control\NeuralNetworkControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\NeuralNetworkControl.Designer.cs">
+      <DependentUpon>NeuralNetworkControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Control\NeuronControl.cs">
       <SubType>Component</SubType>
     </Compile>

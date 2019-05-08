@@ -12,9 +12,25 @@ namespace Self_Organizing_Map.Control
 {
     public partial class ColorNeuronControl : NeuronControl
     {
-        public ColorNeuronControl()
+        private const int SIZE = 8;
+        private const int SPACING = 1;
+
+        public ColorNeuronControl() : base(Neuron)
         {
             InitializeComponent();
+        }
+
+        override public void RefreshNeuron()
+        {
+            UpdateColor();
+        }
+
+        public void UpdateColor()
+        {
+            int red = (int)(Neuron.WeightVector.At(0));
+            int green = (int)(Neuron.WeightVector.At(1));
+            int blue = (int)(Neuron.WeightVector.At(2));
+            this.BackColor = Color.FromArgb(red, green, blue);
         }
     }
 }

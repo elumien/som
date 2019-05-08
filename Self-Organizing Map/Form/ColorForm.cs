@@ -29,7 +29,7 @@ namespace Self_Organizing_Map
         {
             SetCommonParametersFromUserInterface();
             ColorInputDataSet colorInputDataSet = ColorInputDataSet.GenerateRandomColorInputDataSet(COLOR_NUMBER);
-            SelfOrganizingMapAlgorithm somAlgorithm = new SelfOrganizingMapAlgorithm();
+            SomAlgorithm somAlgorithm = new SomAlgorithm();
             somAlgorithm.Run(colorInputDataSet, NEURAL_NETWORK_ROWS, NEURAL_NETWORK_COLUMNS, IterationLimit, InitialStandardDeviation, FinalStandardDeviation, InitialLearningRateCoefficient);
         }
 

@@ -15,14 +15,13 @@ namespace Self_Organizing_Map.Control
     {
         public Neuron Neuron { get; set; }
 
-        public NeuronControl()
+        public NeuronControl(Neuron neuron)
         {
             InitializeComponent();
-        }
-        public NeuronControl(Neuron neuron) : this()
-        {
             Neuron = neuron;
         }
+
+        virtual public void RefreshNeuron() { }
 
     }
 }

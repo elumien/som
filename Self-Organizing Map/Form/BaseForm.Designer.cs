@@ -56,7 +56,7 @@
             this.baseInputPanel.Controls.Add(this.iterationLimitNumericUpDown);
             this.baseInputPanel.Controls.Add(this.iterationLimitLimitLabel);
             this.baseInputPanel.Controls.Add(this.startButton);
-            this.baseInputPanel.Location = new System.Drawing.Point(12, 224);
+            this.baseInputPanel.Location = new System.Drawing.Point(14, 12);
             this.baseInputPanel.Name = "baseInputPanel";
             this.baseInputPanel.Size = new System.Drawing.Size(350, 214);
             this.baseInputPanel.TabIndex = 0;
@@ -202,7 +202,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(379, 239);
             this.Controls.Add(this.baseInputPanel);
             this.Name = "BaseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

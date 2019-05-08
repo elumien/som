@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Self_Organizing_Map.Model
 {
-    public class SelfOrganizingMapAlgorithm
+    public class SomAlgorithm
     {
         public InputDataSet InputDataSet { get; set; }
         public NeuralNetwork NeuralNetwork { get; set; }
