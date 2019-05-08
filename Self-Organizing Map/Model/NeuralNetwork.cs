@@ -22,7 +22,7 @@ namespace Self_Organizing_Map.Model
             {
                 for (int j = 0; j < columns; j++)
                 {
-                    Neurons[i, j] = new Neuron(vectorDimension);
+                    Neurons[i, j] = new Neuron(i, j, vectorDimension);
                 }
             }
         }

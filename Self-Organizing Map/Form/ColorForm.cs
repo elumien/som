@@ -16,6 +16,8 @@ namespace Self_Organizing_Map
         public const int COLOR_NUMBER = 8;
         public const int NEURAL_NETWORK_ROWS = 40;
         public const int NEURAL_NETWORK_COLUMNS = 40;
+        public const double INITIAL_STANDARD_DEVIATION = 4;
+        public const double FINAL_STANDARD_DEVIATION = 0.5;
 
         public static int iterationLimit = 10000;
 
@@ -30,7 +32,7 @@ namespace Self_Organizing_Map
 
             ColorInputDataSet colorInputDataSet = ColorInputDataSet.GenerateRandomColorInputDataSet(COLOR_NUMBER);
             SelfOrganizingMapAlgorithm somAlgorithm = new SelfOrganizingMapAlgorithm();
-            somAlgorithm.Run(colorInputDataSet, NEURAL_NETWORK_ROWS, NEURAL_NETWORK_COLUMNS, iterationLimit);
+            somAlgorithm.Run(colorInputDataSet, NEURAL_NETWORK_ROWS, NEURAL_NETWORK_COLUMNS, iterationLimit, INITIAL_STANDARD_DEVIATION, FINAL_STANDARD_DEVIATION);
         }
     }
 }
