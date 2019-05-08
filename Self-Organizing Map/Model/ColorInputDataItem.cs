@@ -8,7 +8,7 @@ using MathNet.Numerics.LinearAlgebra;
 
 namespace Self_Organizing_Map.Model
 {
-    class ColorInputDataItem : InputDataItem
+    public class ColorInputDataItem : InputDataItem
     {
         public const int RGB_COLOR_VECTOR_DIMENSION = 3;
 

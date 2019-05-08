@@ -11,19 +11,19 @@ using System.Windows.Forms;
 
 namespace Self_Organizing_Map.Control
 {
-    public partial class ColorNeuronControl : Panel
+    public partial class FlowerNeuronControl : Panel
     {
         public Neuron Neuron { get; set; }
 
         private const int SIZE = 8;
         private const int SPACING = 1;
 
-        public ColorNeuronControl()
+        public FlowerNeuronControl()
         {
             InitializeComponent();
         }
 
-        public ColorNeuronControl(Neuron neuron)
+        public FlowerNeuronControl(Neuron neuron, String species)
         {
             Neuron = neuron;
             this.Top = (SIZE + SPACING) * neuron.YCoordinate;
@@ -33,12 +33,20 @@ namespace Self_Organizing_Map.Control
             RefreshNeuron();
         }
 
-        public void RefreshNeuron()
+        /*public void RefreshNeuron()
         {
-            int red = (int)(Neuron.WeightVector.At(0) * 255);
-            int green = (int)(Neuron.WeightVector.At(1) * 255);
-            int blue = (int)(Neuron.WeightVector.At(2) * 255);
-            this.BackColor = Color.FromArgb(red, green, blue);
-        }
+            switch (FlowerNeuron.)
+            {
+                case 1:
+                    Console.WriteLine("Case 1");
+                    break;
+                case 2:
+                    Console.WriteLine("Case 2");
+                    break;
+                default:
+                    Console.WriteLine("Default case");
+                    break;
+            }
+        }*/
     }
 }

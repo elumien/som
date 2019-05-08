@@ -69,6 +69,18 @@
     <Compile Include="Control\ColorNeuralNetworkControl.Designer.cs">
       <DependentUpon>ColorNeuralNetworkControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Control\FlowerNeuralNetworkControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\FlowerNeuralNetworkControl.Designer.cs">
+      <DependentUpon>FlowerNeuralNetworkControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\FlowerNeuronControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\FlowerNeuronControl.Designer.cs">
+      <DependentUpon>FlowerNeuronControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>

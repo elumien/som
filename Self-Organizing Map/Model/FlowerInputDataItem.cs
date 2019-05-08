@@ -8,7 +8,7 @@ using MathNet.Numerics.LinearAlgebra;
 
 namespace Self_Organizing_Map.Model
 {
-    class FlowerInputDataItem : InputDataItem
+    public class FlowerInputDataItem : InputDataItem
     {
         public const int IRIS_FLOWER_VECTOR_DIMENSION = 4;
         public string Species { get; set; }

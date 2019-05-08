@@ -9,18 +9,16 @@ using System.Threading.Tasks;
 
 namespace Self_Organizing_Map.Model
 {
-    class FlowerInputDataSet : InputDataSet
+    public class FlowerInputDataSet : InputDataSet
     {
-        public FlowerInputDataSet(List<InputDataItem> inputDataItems, int inputVectorDimension, int inputDataItemNumber) : base(inputDataItems, inputVectorDimension, inputDataItemNumber)
-        {
-
-        }
+        public FlowerInputDataSet(List<InputDataItem> inputDataItems, int inputVectorDimension, int inputDataItemNumber) : base(inputDataItems, inputVectorDimension, inputDataItemNumber) { }
 
         public static FlowerInputDataSet CreateFlowerInputDataSetFromCvs()
         {
             List<InputDataItem> inputDataItems = new List<InputDataItem>();
 
             Vector<double> vector = Vector<double>.Build.Dense(FlowerInputDataItem.IRIS_FLOWER_VECTOR_DIMENSION);
+
             using (var reader = new StreamReader("../../Resource/iris.csv"))
             {
                 while (!reader.EndOfStream)
@@ -43,6 +41,7 @@ namespace Self_Organizing_Map.Model
 
                     inputDataItems.Add(new FlowerInputDataItem(vector, values[FlowerInputDataItem.IRIS_FLOWER_VECTOR_DIMENSION]));
                 }
+                reader.Close();
             }
 
             return new FlowerInputDataSet(inputDataItems, FlowerInputDataItem.IRIS_FLOWER_VECTOR_DIMENSION, inputDataItems.Count());

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Self_Organizing_Map.Model
 {
-    class ColorInputDataSet : InputDataSet
+    public class ColorInputDataSet : InputDataSet
     {
         public ColorInputDataSet(List<InputDataItem> inputDataItems, int inputVectorDimension, int inputDataItemNumber) : base(inputDataItems, inputVectorDimension, inputDataItemNumber) { }
 

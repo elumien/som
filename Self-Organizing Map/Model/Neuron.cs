@@ -14,6 +14,8 @@ namespace Self_Organizing_Map.Model
         public int XCoordinate { get; set; }
         public int YCoordinate { get; set; }
 
+        public Neuron() { }
+
         public Neuron(int xCoordinate, int yCoordinate, int vectorDimension)
         {
             WeightVector = Vector<double>.Build.Random(vectorDimension, new ContinuousUniform(0, 1));
