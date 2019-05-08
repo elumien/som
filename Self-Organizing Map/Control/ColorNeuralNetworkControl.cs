@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace Self_Organizing_Map.Control
 {
-    public partial class NeuralNetworkControl : Panel
+    public partial class ColorNeuralNetworkControl : Panel
     {
         private NeuralNetwork neuralNetwork;
 
-        public NeuralNetworkControl()
+        public ColorNeuralNetworkControl()
         {
             InitializeComponent();
         }
@@ -25,9 +25,9 @@ namespace Self_Organizing_Map.Control
             return neuralNetwork;
         }
 
-        public void SetNeuralNetwork(NeuralNetwork value)
+        public void SetNeuralNetwork(NeuralNetwork neuralNetwork)
         {
-            this.neuralNetwork = value;
+            this.neuralNetwork = neuralNetwork;
             RefreshMap();
         }
 

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.neuralNetworkControl = new Self_Organizing_Map.Control.NeuralNetworkControl();
+            this.neuralNetworkControl = new Self_Organizing_Map.Control.ColorNeuralNetworkControl();
             this.baseInputPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iterationLimitNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.initialLearningRateCoefficientNumericUpDown)).BeginInit();
@@ -73,6 +73,6 @@
 
         #endregion
 
-        private Control.NeuralNetworkControl neuralNetworkControl;
+        private Control.ColorNeuralNetworkControl neuralNetworkControl;
     }
 }

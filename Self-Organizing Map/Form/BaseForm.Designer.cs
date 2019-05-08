@@ -76,7 +76,7 @@
             this.finalStandardDeviationNumericUpDown.TabIndex = 8;
             this.finalStandardDeviationNumericUpDown.ThousandsSeparator = true;
             this.finalStandardDeviationNumericUpDown.Value = new decimal(new int[] {
-            1,
+            2,
             0,
             0,
             0});
@@ -105,7 +105,7 @@
             this.initialStandardDeviationNumericUpDown.TabIndex = 6;
             this.initialStandardDeviationNumericUpDown.ThousandsSeparator = true;
             this.initialStandardDeviationNumericUpDown.Value = new decimal(new int[] {
-            1,
+            10,
             0,
             0,
             0});
@@ -138,7 +138,7 @@
             this.initialLearningRateCoefficientNumericUpDown.TabIndex = 4;
             this.initialLearningRateCoefficientNumericUpDown.ThousandsSeparator = true;
             this.initialLearningRateCoefficientNumericUpDown.Value = new decimal(new int[] {
-            8,
+            5,
             0,
             0,
             65536});

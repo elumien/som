@@ -1,6 +1,6 @@
 ﻿namespace Self_Organizing_Map.Control
 {
-    partial class NeuralNetworkControl
+    partial class ColorNeuralNetworkControl
     {
         /// <summary>
         /// Required designer variable.
