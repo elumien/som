@@ -21,5 +21,13 @@ namespace Self_Organizing_Map
         {
             InitializeComponent();
         }
+
+        protected void SetCommonParametersFromUserInterface()
+        {
+            IterationLimit = (int)iterationLimitNumericUpDown.Value;
+            InitialStandardDeviation = (double)initialStandardDeviationNumericUpDown.Value;
+            FinalStandardDeviation = (double)finalStandardDeviationNumericUpDown.Value;
+            InitialLearningRateCoefficient = (double)initialLearningRateCoefficientNumericUpDown.Value;
+        }
     }
 }

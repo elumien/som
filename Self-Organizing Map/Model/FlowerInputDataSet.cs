@@ -18,28 +18,35 @@ namespace Self_Organizing_Map.Model
             List<InputDataItem> inputDataItems = new List<InputDataItem>();
 
             Vector<double> vector = Vector<double>.Build.Dense(FlowerInputDataItem.IRIS_FLOWER_VECTOR_DIMENSION);
-
-            using (var reader = new StreamReader("../../Resource/iris.csv"))
+            try
             {
-                while (!reader.EndOfStream)
+                using (var reader = new StreamReader("../../Resource/iris.csv"))
                 {
-                    var line = reader.ReadLine();
-                    var values = line.Split(',');
-
-                    double[] vectorComponents = new double[FlowerInputDataItem.IRIS_FLOWER_VECTOR_DIMENSION];
-
-                    for (int i = 0; i < FlowerInputDataItem.IRIS_FLOWER_VECTOR_DIMENSION; i++)
+                    while (!reader.EndOfStream)
                     {
-                        vectorComponents[i] = double.Parse((values[i]), CultureInfo.InvariantCulture);
+                        var line = reader.ReadLine();
+                        var values = line.Split(',');
+
+                        double[] vectorComponents = new double[FlowerInputDataItem.IRIS_FLOWER_VECTOR_DIMENSION];
+
+                        for (int i = 0; i < FlowerInputDataItem.IRIS_FLOWER_VECTOR_DIMENSION; i++)
+                        {
+                            vectorComponents[i] = double.Parse((values[i]), CultureInfo.InvariantCulture);
+                        }
+
+                        string vmi = values[4];
+
+                        vector.SetValues(vectorComponents);
+
+                        inputDataItems.Add(new FlowerInputDataItem(vector.Normalize(2), values[FlowerInputDataItem.IRIS_FLOWER_VECTOR_DIMENSION]));
                     }
-
-                    string vmi = values[4];
-
-                    vector.SetValues(vectorComponents);
-
-                    inputDataItems.Add(new FlowerInputDataItem(vector.Normalize(2), values[FlowerInputDataItem.IRIS_FLOWER_VECTOR_DIMENSION]));
+                    reader.Close();
                 }
-                reader.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
 
             return new FlowerInputDataSet(inputDataItems, FlowerInputDataItem.IRIS_FLOWER_VECTOR_DIMENSION, inputDataItems.Count());

@@ -28,11 +28,13 @@ namespace Self_Organizing_Map.Control
         public void SetNeuralNetwork(NeuralNetwork neuralNetwork)
         {
             this.neuralNetwork = neuralNetwork;
-            RefreshMap();
         }
 
-        private void RefreshMap()
+        public void RefreshMap()
         {
+            this.Controls.Clear();
+            this.BackColor = Color.Black;
+
             foreach (Neuron neuron in neuralNetwork.Neurons)
             {
                 ColorNeuronControl colorNeuronControl = new ColorNeuronControl(neuron);

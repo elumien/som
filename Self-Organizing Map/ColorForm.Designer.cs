@@ -81,10 +81,10 @@
             this.fixColorsRadioButton.Checked = true;
             this.fixColorsRadioButton.Location = new System.Drawing.Point(18, 12);
             this.fixColorsRadioButton.Name = "fixColorsRadioButton";
-            this.fixColorsRadioButton.Size = new System.Drawing.Size(69, 17);
+            this.fixColorsRadioButton.Size = new System.Drawing.Size(96, 17);
             this.fixColorsRadioButton.TabIndex = 0;
             this.fixColorsRadioButton.TabStop = true;
-            this.fixColorsRadioButton.Text = "Fix colors";
+            this.fixColorsRadioButton.Text = "Example colors";
             this.fixColorsRadioButton.UseVisualStyleBackColor = true;
             // 
             // ColorForm

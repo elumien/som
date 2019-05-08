@@ -19,7 +19,7 @@ namespace Self_Organizing_Map.Model
         public Vector<double> InputVector { get; set; }
         public Neuron BestMatchingUnit { get; set; } = null;
 
-        public NeuralNetwork Run(InputDataSet inputDataSet, int NeuralNetworkRows, int NeuralNetworkColumns, int iterationLimit, double initialStandardDeviation, double finalStandardDeviation, double initialLearningRateCoefficient)
+        public void Run(InputDataSet inputDataSet, int NeuralNetworkRows, int NeuralNetworkColumns, int iterationLimit, double initialStandardDeviation, double finalStandardDeviation, double initialLearningRateCoefficient)
         {
             SetParameters(inputDataSet, iterationLimit, initialStandardDeviation, finalStandardDeviation, initialLearningRateCoefficient);
             NeuralNetwork = new NeuralNetwork(NeuralNetworkRows, NeuralNetworkColumns, inputDataSet.InputVectorDimension);
@@ -27,13 +27,9 @@ namespace Self_Organizing_Map.Model
             for (int i = 0; i < IterationLimit; i++)
              {
                  InputVector = InputDataSet.SelectRandomInputItem().InputVector;
-                 CalculateBestMatchingUnit();
+                 UpdateBestMatchingUnit();
                  UpdateWeightVectors(i);
              }
-
-             System.Console.WriteLine("Finished");
-
-            return NeuralNetwork;
         }
 
         private void SetParameters(InputDataSet inputDataSet, int iterationLimit, double initialStandardDeviation, double finalStandardDeviation, double initialLearningRateCoefficient)
@@ -45,7 +41,7 @@ namespace Self_Organizing_Map.Model
             InitialLearningRateCoefficient = initialLearningRateCoefficient;
         }
 
-        private void CalculateBestMatchingUnit()
+        private void UpdateBestMatchingUnit()
         {
             double euclideanDistanceMinimum = 9999999999999999999;
 
@@ -84,13 +80,5 @@ namespace Self_Organizing_Map.Model
         {
             return Math.Exp(-1 * Math.Pow(Neuron.CalculateEuclideanDistance(BestMatchingUnit, neuron), 2) / Math.Pow(CalculateStandardDeviation(iteration), 2));
         }
-
-
-
-
-
-
-
-
     }
 }

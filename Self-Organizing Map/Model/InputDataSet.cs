@@ -13,8 +13,8 @@ namespace Self_Organizing_Map.Model
         public int InputVectorDimension { get; set; }
 
         private static Random random = new Random();
-        
-        protected InputDataSet(List<InputDataItem> inputDataItems, int inputVectorDimension, int inputDataItemNumber)
+
+        public InputDataSet(List<InputDataItem> inputDataItems, int inputVectorDimension, int inputDataItemNumber)
         {
             InputDataItems = inputDataItems;
             InputVectorDimension = inputVectorDimension;

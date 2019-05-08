@@ -23,22 +23,14 @@ namespace Self_Organizing_Map
 
         private void StartButton_Click(object sender, EventArgs e)
         {
-            flowerNeuralNetworkControl.Controls.Clear();
             SetCommonParametersFromUserInterface();
             FlowerInputDataSet flowerInputDataSet = FlowerInputDataSet.CreateFlowerInputDataSetFromCvs();
             SomAlgorithm somAlgorithm = new SomAlgorithm();
-            NeuralNetwork neuralNetwork = somAlgorithm.Run(flowerInputDataSet, NEURAL_NETWORK_ROWS, NEURAL_NETWORK_COLUMNS, IterationLimit, InitialStandardDeviation, FinalStandardDeviation, InitialLearningRateCoefficient);
-            flowerNeuralNetworkControl.SetNeuralNetwork(neuralNetwork);
-            flowerNeuralNetworkControl.SetFlowerInputDataSet(flowerInputDataSet);
+            somAlgorithm.Run(flowerInputDataSet, NEURAL_NETWORK_ROWS, NEURAL_NETWORK_COLUMNS, IterationLimit, InitialStandardDeviation, FinalStandardDeviation, InitialLearningRateCoefficient);
+            NeuralNetwork neuralNetwork = somAlgorithm.NeuralNetwork;
+            flowerNeuralNetworkControl.NeuralNetwork = neuralNetwork;
+            flowerNeuralNetworkControl.FlowerInputDataSet = flowerInputDataSet;
             flowerNeuralNetworkControl.RefreshMap();
-        }
-
-        protected void SetCommonParametersFromUserInterface()
-        {
-            IterationLimit = (int)iterationLimitNumericUpDown.Value;
-            InitialStandardDeviation = (double)initialStandardDeviationNumericUpDown.Value;
-            FinalStandardDeviation = (double)finalStandardDeviationNumericUpDown.Value;
-            InitialLearningRateCoefficient = (double)initialLearningRateCoefficientNumericUpDown.Value;
         }
     }
 }

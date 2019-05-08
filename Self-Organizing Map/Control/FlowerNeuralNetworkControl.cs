@@ -13,46 +13,27 @@ namespace Self_Organizing_Map.Control
 {
     public partial class FlowerNeuralNetworkControl : Panel
     {
-        private NeuralNetwork neuralNetwork;
-        private FlowerInputDataSet flowerInputDataSet;
+        public NeuralNetwork NeuralNetwork { get; set; }
+        public FlowerInputDataSet FlowerInputDataSet { get; set; }
 
         public FlowerNeuralNetworkControl()
         {
             InitializeComponent();
         }
 
-        public NeuralNetwork GetNeuralNetwork()
-        {
-            return neuralNetwork;
-        }
-
-        public void SetNeuralNetwork(NeuralNetwork value)
-        {
-            neuralNetwork = value;
-        }
-
-        public FlowerInputDataSet GetFlowerInputDataSet()
-        {
-            return flowerInputDataSet;
-        }
-
-        public void SetFlowerInputDataSet(FlowerInputDataSet value)
-        {
-            flowerInputDataSet = value;
-        }
-
         public void RefreshMap()
         {
+            this.Controls.Clear();
             this.BackColor = Color.White;
  
-            foreach (FlowerInputDataItem flowerInputDataItem in flowerInputDataSet.InputDataItems)
+            foreach (FlowerInputDataItem flowerInputDataItem in FlowerInputDataSet.InputDataItems)
             {
                 double euclideanDistanceMinimum = 9999999999999999999;
                 Neuron BestMatchingUnit = new Neuron();
 
                 System.Console.WriteLine(flowerInputDataItem.Species);
 
-                foreach (Neuron neuron in neuralNetwork.Neurons)
+                foreach (Neuron neuron in NeuralNetwork.Neurons)
                 {
                     double distance = MathNet.Numerics.Distance.Euclidean<double>(flowerInputDataItem.InputVector, neuron.WeightVector);
 
@@ -66,8 +47,6 @@ namespace Self_Organizing_Map.Control
                 }
 
                 this.Controls.Add(new FlowerNeuronControl(BestMatchingUnit, flowerInputDataItem.Species));
-
-
             }
         }
     }

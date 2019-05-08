@@ -23,7 +23,7 @@ namespace Self_Organizing_Map.Control
             InitializeComponent();
         }
 
-        public FlowerNeuronControl(Neuron neuron, String species)
+        public FlowerNeuronControl(Neuron neuron, string species)
         {
             Neuron = neuron;
             this.Top = (SIZE + SPACING) * neuron.YCoordinate;
@@ -33,7 +33,7 @@ namespace Self_Organizing_Map.Control
             RefreshNeuron(species);
         }
 
-        public void RefreshNeuron(String species)
+        public void RefreshNeuron(string species)
         {
             switch (species)
             {
@@ -45,8 +45,6 @@ namespace Self_Organizing_Map.Control
                     break;
                 case "virginica":
                     this.BackColor = Color.Blue;
-                    break;
-                default:
                     break;
             }
         }
