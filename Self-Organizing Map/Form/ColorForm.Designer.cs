@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.neuralNetworkControl1 = new Self_Organizing_Map.Control.NeuralNetworkControl();
+            this.neuralNetworkControl = new Self_Organizing_Map.Control.NeuralNetworkControl();
             this.baseInputPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iterationLimitNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.initialLearningRateCoefficientNumericUpDown)).BeginInit();
@@ -44,23 +44,23 @@
             // 
             this.startButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
-            // neuralNetworkControl1
+            // neuralNetworkControl
             // 
-            this.neuralNetworkControl1.Location = new System.Drawing.Point(394, 21);
-            this.neuralNetworkControl1.Name = "neuralNetworkControl1";
-            this.neuralNetworkControl1.Size = new System.Drawing.Size(364, 364);
-            this.neuralNetworkControl1.TabIndex = 1;
+            this.neuralNetworkControl.Location = new System.Drawing.Point(394, 21);
+            this.neuralNetworkControl.Name = "neuralNetworkControl";
+            this.neuralNetworkControl.Size = new System.Drawing.Size(364, 364);
+            this.neuralNetworkControl.TabIndex = 1;
             // 
             // ColorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 402);
-            this.Controls.Add(this.neuralNetworkControl1);
+            this.Controls.Add(this.neuralNetworkControl);
             this.Name = "ColorForm";
             this.Text = "Color Self-Organizing Map";
             this.Controls.SetChildIndex(this.baseInputPanel, 0);
-            this.Controls.SetChildIndex(this.neuralNetworkControl1, 0);
+            this.Controls.SetChildIndex(this.neuralNetworkControl, 0);
             this.baseInputPanel.ResumeLayout(false);
             this.baseInputPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iterationLimitNumericUpDown)).EndInit();
@@ -73,6 +73,6 @@
 
         #endregion
 
-        private Control.NeuralNetworkControl neuralNetworkControl1;
+        private Control.NeuralNetworkControl neuralNetworkControl;
     }
 }

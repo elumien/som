@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Self_Organizing_Map.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,17 +11,29 @@ using System.Windows.Forms;
 
 namespace Self_Organizing_Map.Control
 {
-    public partial class ColorNeuronControl : NeuronControl
+    public partial class ColorNeuronControl : Panel
     {
+        public Neuron Neuron { get; set; }
+
         private const int SIZE = 8;
         private const int SPACING = 1;
 
-        public ColorNeuronControl() : base(Neuron)
+        public ColorNeuronControl()
         {
             InitializeComponent();
         }
 
-        override public void RefreshNeuron()
+        public ColorNeuronControl(Neuron neuron)
+        {
+            Neuron = neuron;
+            this.Top = (SIZE + SPACING) * neuron.YCoordinate;
+            this.Left = (SIZE + SPACING) * neuron.XCoordinate;
+            this.Height = SIZE;
+            this.Width = SIZE;
+            UpdateColor();
+        }
+
+        public void RefreshNeuron()
         {
             UpdateColor();
         }

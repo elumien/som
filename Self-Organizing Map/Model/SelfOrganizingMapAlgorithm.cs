@@ -19,19 +19,21 @@ namespace Self_Organizing_Map.Model
         public Vector<double> InputVector { get; set; }
         public Neuron BestMatchingUnit { get; set; } = null;
 
-        public void Run(InputDataSet inputDataSet, int NeuralNetworkRows, int NeuralNetworkColumns, int iterationLimit, double initialStandardDeviation, double finalStandardDeviation, double initialLearningRateCoefficient)
+        public NeuralNetwork Run(InputDataSet inputDataSet, int NeuralNetworkRows, int NeuralNetworkColumns, int iterationLimit, double initialStandardDeviation, double finalStandardDeviation, double initialLearningRateCoefficient)
         {
             SetParameters(inputDataSet, iterationLimit, initialStandardDeviation, finalStandardDeviation, initialLearningRateCoefficient);
             NeuralNetwork = new NeuralNetwork(NeuralNetworkRows, NeuralNetworkColumns, inputDataSet.InputVectorDimension);
 
             for (int i = 0; i < IterationLimit; i++)
-            {
-                InputVector = InputDataSet.SelectRandomInputItem().InputVector;
-                CalculateBestMatchingUnit();
-                UpdateWeightVectors(i);
-            }
+             {
+                 InputVector = InputDataSet.SelectRandomInputItem().InputVector;
+                 CalculateBestMatchingUnit();
+                 UpdateWeightVectors(i);
+             }
 
-            System.Console.WriteLine("Finished");
+             System.Console.WriteLine("Finished");
+
+            return NeuralNetwork;
         }
 
         private void SetParameters(InputDataSet inputDataSet, int iterationLimit, double initialStandardDeviation, double finalStandardDeviation, double initialLearningRateCoefficient)

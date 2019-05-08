@@ -27,7 +27,7 @@ namespace Self_Organizing_Map.Model
 
         public static ColorInputDataItem GenerateRandomColorInputDataItem()
         {
-            Vector<double> inputVector = Vector<double>.Build.Random(RGB_COLOR_VECTOR_DIMENSION, new ContinuousUniform(0, 1)).Normalize(2);
+            Vector<double> inputVector = Vector<double>.Build.Random(RGB_COLOR_VECTOR_DIMENSION, new ContinuousUniform(0, 255));
 
             return new ColorInputDataItem(inputVector);
         }

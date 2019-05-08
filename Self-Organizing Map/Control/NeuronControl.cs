@@ -15,9 +15,13 @@ namespace Self_Organizing_Map.Control
     {
         public Neuron Neuron { get; set; }
 
-        public NeuronControl(Neuron neuron)
+        public NeuronControl()
         {
             InitializeComponent();
+        }
+
+        public NeuronControl(Neuron neuron)
+        {
             Neuron = neuron;
         }
 
