@@ -19,9 +19,9 @@ namespace Self_Organizing_Map.Model
         public Vector<double> InputVector { get; set; }
         public Neuron BestMatchingUnit { get; set; } = null;
 
-        public void Run(InputDataSet inputDataSet, int NeuralNetworkRows, int NeuralNetworkColumns, int iterationLimit, double initialStandardDeviation, double finalStandardDeviation)
+        public void Run(InputDataSet inputDataSet, int NeuralNetworkRows, int NeuralNetworkColumns, int iterationLimit, double initialStandardDeviation, double finalStandardDeviation, double initialLearningRateCoefficient)
         {
-            SetParameters(inputDataSet, iterationLimit, initialStandardDeviation, finalStandardDeviation);
+            SetParameters(inputDataSet, iterationLimit, initialStandardDeviation, finalStandardDeviation, initialLearningRateCoefficient);
             NeuralNetwork = new NeuralNetwork(NeuralNetworkRows, NeuralNetworkColumns, inputDataSet.InputVectorDimension);
 
             for (int i = 0; i < IterationLimit; i++)
@@ -34,12 +34,13 @@ namespace Self_Organizing_Map.Model
             System.Console.WriteLine("Finished");
         }
 
-        private void SetParameters(InputDataSet inputDataSet, int iterationLimit, double initialStandardDeviation, double finalStandardDeviation)
+        private void SetParameters(InputDataSet inputDataSet, int iterationLimit, double initialStandardDeviation, double finalStandardDeviation, double initialLearningRateCoefficient)
         {
             InputDataSet = inputDataSet;
             IterationLimit = iterationLimit;
             InitialStandardDeviation = initialStandardDeviation;
             FinalStandardDeviation = finalStandardDeviation;
+            InitialLearningRateCoefficient = initialLearningRateCoefficient;
         }
 
         private void CalculateBestMatchingUnit()
