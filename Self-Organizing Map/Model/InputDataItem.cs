@@ -11,6 +11,10 @@ namespace Self_Organizing_Map.Model
     {
         public Vector<double> InputVector { get; set; }
 
+        public InputDataItem()
+        {
+
+        }
         public InputDataItem(Vector<double> inputVector)
         {
             InputVector = inputVector;
