@@ -16,13 +16,6 @@ namespace Self_Organizing_Map
         public FlowerForm()
         {
             InitializeComponent();
-            FlowerInputDataSet flowerInputDataSet = FlowerInputDataSet.CreateFlowerInputDataSetFromCvs();
-
-            foreach (InputDataItem inputDataItem in flowerInputDataSet.InputDataItems)
-            {
-                System.Console.WriteLine(inputDataItem.InputVector.ToVectorString());
-                System.Console.WriteLine(flo
-            }
         }
     }
 }

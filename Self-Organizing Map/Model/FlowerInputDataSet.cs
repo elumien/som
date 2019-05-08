@@ -1,6 +1,7 @@
 ﻿using MathNet.Numerics.LinearAlgebra;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -20,19 +21,27 @@ namespace Self_Organizing_Map.Model
             List<InputDataItem> inputDataItems = new List<InputDataItem>();
 
             Vector<double> vector = Vector<double>.Build.Dense(FlowerInputDataItem.IRIS_FLOWER_VECTOR_DIMENSION);
-            using (var reader = new StreamReader("Resource/iris.cvs"))
+            using (var reader = new StreamReader("../../Resource/iris.csv"))
             {
                 while (!reader.EndOfStream)
                 {
                     var line = reader.ReadLine();
-                    var values = line.Split(';');
+                    var values = line.Split(',');
 
-                    for (int i = 0; i < 4; i++)
+                    double[] vectorComponents = new double[FlowerInputDataItem.IRIS_FLOWER_VECTOR_DIMENSION];
+
+                    for (int i = 0; i < FlowerInputDataItem.IRIS_FLOWER_VECTOR_DIMENSION; i++)
                     {
-                        vector.Add(Convert.ToDouble(values[i]));
+                        vectorComponents[i] = double.Parse((values[i]), CultureInfo.InvariantCulture);
                     }
 
-                    inputDataItems.Add(new FlowerInputDataItem(vector, values[4].ToString()));
+                    string vmi = values[4];
+
+                    System.Console.WriteLine(vmi);
+
+                    vector.SetValues(vectorComponents);
+
+                    inputDataItems.Add(new FlowerInputDataItem(vector, values[FlowerInputDataItem.IRIS_FLOWER_VECTOR_DIMENSION]));
                 }
             }
 

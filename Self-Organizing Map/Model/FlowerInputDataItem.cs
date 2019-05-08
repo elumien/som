@@ -12,6 +12,9 @@ namespace Self_Organizing_Map.Model
     {
         public const int IRIS_FLOWER_VECTOR_DIMENSION = 4;
         public string Species { get; set; }
-        public FlowerInputDataItem(Vector<double> inputVector, string Species) : base(inputVector) { }
+        public FlowerInputDataItem(Vector<double> inputVector, string Species) : base(inputVector)
+        {
+            this.Species = Species;
+        }
     }
 }
