@@ -22,12 +22,12 @@ namespace Self_Organizing_Map.Model
 
             vector.SetValues(new double[] { red, green, blue });
 
-            return vector;
+            return vector.Normalize(2);
         }
 
         public static ColorInputDataItem GenerateRandomColorInputDataItem()
         {
-            Vector<double> inputVector = Vector<double>.Build.Random(RGB_COLOR_VECTOR_DIMENSION, new ContinuousUniform(0, 255));
+            Vector<double> inputVector = Vector<double>.Build.Random(RGB_COLOR_VECTOR_DIMENSION, new ContinuousUniform(0, 1)).Normalize(2); 
 
             return new ColorInputDataItem(inputVector);
         }

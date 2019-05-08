@@ -40,9 +40,9 @@ namespace Self_Organizing_Map.Control
 
         public void UpdateColor()
         {
-            int red = (int)(Neuron.WeightVector.At(0));
-            int green = (int)(Neuron.WeightVector.At(1));
-            int blue = (int)(Neuron.WeightVector.At(2));
+            int red = (int)(Neuron.WeightVector.At(0) * 255);
+            int green = (int)(Neuron.WeightVector.At(1) * 255);
+            int blue = (int)(Neuron.WeightVector.At(2) * 255);
             this.BackColor = Color.FromArgb(red, green, blue);
         }
     }
