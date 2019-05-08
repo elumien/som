@@ -10,8 +10,28 @@ namespace Self_Organizing_Map.Model
     class WordInputDataItem : InputDataItem
     {
         public string Word { get; set; }
+        public Vector<double> SymbolVector { get; set; }
+        public Vector<double> AttributeVector { get; set; }
 
         public WordInputDataItem(Vector<double> inputVector) : base(inputVector) { }
+
+        public WordInputDataItem(Vector<double> attributeVector, Vector<double> symbolVector, string word)
+        {
+            Word = word;
+            SymbolVector = symbolVector;
+            AttributeVector = attributeVector;
+            InputVector = Vector<double>.Build.Sparse(WordInputDataSet.REDUCED_DIMENSION * 3);
+
+            for (int i = 0; i < WordInputDataSet.REDUCED_DIMENSION; i++)
+            {
+                InputVector[i] = symbolVector[i];
+            }
+
+            for (int i = WordInputDataSet.REDUCED_DIMENSION; i < 3 * WordInputDataSet.REDUCED_DIMENSION; i++)
+            {
+                InputVector[i + WordInputDataSet.REDUCED_DIMENSION] = attributeVector[i - WordInputDataSet.REDUCED_DIMENSION];
+            }
+        }
 
         public WordInputDataItem(string word, int index)
         {
@@ -40,7 +60,7 @@ namespace Self_Organizing_Map.Model
 
             for (int i = dimension; i < 2 * dimension; i++)
             {
-                InputVector[i] = successorVector[i - dimension];
+                InputVector[i + dimension] = successorVector[i - dimension];
             }
         }
 

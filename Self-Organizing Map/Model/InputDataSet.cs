@@ -14,6 +14,8 @@ namespace Self_Organizing_Map.Model
 
         private static Random random = new Random();
 
+        public InputDataSet() { }
+
         public InputDataSet(List<InputDataItem> inputDataItems, int inputVectorDimension, int inputDataItemNumber)
         {
             InputDataItems = inputDataItems;

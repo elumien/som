@@ -12,26 +12,49 @@ namespace Self_Organizing_Map.Model
     {
         public static int VocabularySize { get; set; }
         public const int MOST_FREQUENT_WORD_NUMBER = 15;
+        public const int REDUCED_DIMENSION = 60;
         public static double[,] RandomMatrix { get; set; }
 
         private static Random random = new Random();
 
-        public WordInputDataSet(List<InputDataItem> inputDataItems, int inputVectorDimension, int inputDataItemNumber) : base(inputDataItems, inputVectorDimension, inputDataItemNumber) { }
+        public WordInputDataSet(List<WordInputDataItem> wordInputDataItem, int inputVectorDimension, int inputDataItemNumber) { }
 
-        public void ProcessText()
+        public WordInputDataSet ProcessText()
         {
             List<string> tokenizedText = CreateWordListFromTxt("../../Resource/token.txt");
             List<string> stopWords = CreateWordListFromTxt("../../Resource/stopword.txt");
             IEnumerable<string> stopWordsFreeTextEnumerable = tokenizedText.Except(stopWords);
             List<string> stopWordsFreeText = stopWordsFreeTextEnumerable.ToList<string>();
             IEnumerable<string> distinctWordsEnumerable = stopWordsFreeText.Distinct<string>();
-            //List<string> mostFrequentWords = GetMostFrequentWords(stopWordsFreeText, MOST_FREQUENT_WORD_NUMBER);
-            //VocabularySize = distinctWords.Count();
+            List<string> distinctWords = distinctWordsEnumerable.ToList<string>();
+            List<string> mostFrequentWords = GetMostFrequentWords(stopWordsFreeText, MOST_FREQUENT_WORD_NUMBER);
+            VocabularySize = distinctWords.Count();
+            CreateRandomMatrix(VocabularySize, REDUCED_DIMENSION);
+            List<WordInputDataItem> symbolCodes = CreateSymbolCodes(distinctWords);
+            List<WordInputDataItem> contexts = CreateAttributeFields(stopWordsFreeText, symbolCodes, mostFrequentWords);
+            List<WordInputDataItem> averageContexts = CalculateAverageAttributeFields(symbolCodes, contexts, mostFrequentWords);
+            System.Console.WriteLine("VÉÉÉÉÉÉÉÉGE" + VocabularySize);
+            List<WordInputDataItem> wordInputDataItem = CreateInput(symbolCodes, averageContexts);
 
-            //List<WordInputDataItem> symbolCodes = CreateSymbolCodes(distinctWords);
-            //List<WordInputDataItem> contexts = CreateAttributeFields(stopWordsFreeText, symbolCodes, mostFrequentWords);
-            //List<WordInputDataItem> averageContexts = CalculateAverageAttributeFields(symbolCodes, contexts, mostFrequentWords);
-            //Input[] inputs = CreateInput(symbolCodes, averageContexts)
+            return new WordInputDataSet(wordInputDataItem, REDUCED_DIMENSION * 3, wordInputDataItem.Count);
+
+        }
+
+        public List<WordInputDataItem> CreateInput(List<WordInputDataItem> symbolCodes, List<WordInputDataItem> averageContext)
+        {
+            int numberOfWords = averageContext.Count();
+            string word;
+
+            List<WordInputDataItem> Inputs = new List<WordInputDataItem>(numberOfWords);
+
+            for (int i = 0; i < numberOfWords; i++)
+            {
+                Vector<double> attributes = averageContext[i].InputVector;
+                word = averageContext[i].Word;
+                Vector<double> symbol = symbolCodes.Where(w => w.Word == word).First().InputVector;
+                Inputs.Add(new WordInputDataItem(symbol, attributes, word));
+            }
+            return Inputs;
 
         }
 
