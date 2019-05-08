@@ -17,9 +17,6 @@ namespace Self_Organizing_Map
         public const int NEURAL_NETWORK_ROWS = 40;
         public const int NEURAL_NETWORK_COLUMNS = 40;
 
-        //public const double INITIAL_STANDARD_DEVIATION = 4;
-        //public const double FINAL_STANDARD_DEVIATION = 0.5;
-
         public ColorForm()
         {
             InitializeComponent();
@@ -29,7 +26,15 @@ namespace Self_Organizing_Map
         {
             neuralNetworkControl.Controls.Clear();
             SetCommonParametersFromUserInterface();
-            ColorInputDataSet colorInputDataSet = ColorInputDataSet.GenerateRandomColorInputDataSet(COLOR_NUMBER);
+            ColorInputDataSet colorInputDataSet;
+            if (fixColorsRadioButton.Checked)
+            {
+                colorInputDataSet = ColorInputDataSet.CreateFixColorInputDataSet();
+            }
+            else
+            {
+                colorInputDataSet = ColorInputDataSet.GenerateRandomColorInputDataSet(COLOR_NUMBER);
+            } 
             SomAlgorithm somAlgorithm = new SomAlgorithm();
             NeuralNetwork neuralNetwork = somAlgorithm.Run(colorInputDataSet, NEURAL_NETWORK_ROWS, NEURAL_NETWORK_COLUMNS, IterationLimit, InitialStandardDeviation, FinalStandardDeviation, InitialLearningRateCoefficient);
             neuralNetworkControl.SetNeuralNetwork(neuralNetwork);
@@ -42,6 +47,5 @@ namespace Self_Organizing_Map
             FinalStandardDeviation = (double)finalStandardDeviationNumericUpDown.Value;
             InitialLearningRateCoefficient = (double)initialLearningRateCoefficientNumericUpDown.Value;
         }
-
     }
 }

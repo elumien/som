@@ -22,7 +22,7 @@ namespace Self_Organizing_Map.Model
 
             vector.SetValues(new double[] { red, green, blue });
 
-            return vector.Normalize(2);
+            return vector;
         }
 
         public static ColorInputDataItem GenerateRandomColorInputDataItem()
