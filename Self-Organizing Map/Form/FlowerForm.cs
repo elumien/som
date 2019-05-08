@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Self_Organizing_Map.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace Self_Organizing_Map
         public FlowerForm()
         {
             InitializeComponent();
+            FlowerInputDataSet flowerInputDataSet = FlowerInputDataSet.CreateFlowerInputDataSetFromCvs();
+
+            foreach (InputDataItem inputDataItem in flowerInputDataSet.InputDataItems)
+            {
+                System.Console.WriteLine(inputDataItem.InputVector.ToVectorString());
+                System.Console.WriteLine(flo
+            }
         }
     }
 }

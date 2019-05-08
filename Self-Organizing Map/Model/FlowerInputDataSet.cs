@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MathNet.Numerics.LinearAlgebra;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,22 +15,28 @@ namespace Self_Organizing_Map.Model
 
         }
 
-        public void ReadCVS()
+        public static FlowerInputDataSet CreateFlowerInputDataSetFromCvs()
         {
+            List<InputDataItem> inputDataItems = new List<InputDataItem>();
 
+            Vector<double> vector = Vector<double>.Build.Dense(FlowerInputDataItem.IRIS_FLOWER_VECTOR_DIMENSION);
             using (var reader = new StreamReader("Resource/iris.cvs"))
             {
-                List<string> listA = new List<string>();
-                List<string> listB = new List<string>();
                 while (!reader.EndOfStream)
                 {
                     var line = reader.ReadLine();
                     var values = line.Split(';');
 
-                    listA.Add(values[0]);
-                    listB.Add(values[1]);
+                    for (int i = 0; i < 4; i++)
+                    {
+                        vector.Add(Convert.ToDouble(values[i]));
+                    }
+
+                    inputDataItems.Add(new FlowerInputDataItem(vector, values[4].ToString()));
                 }
             }
+
+            return new FlowerInputDataSet(inputDataItems, FlowerInputDataItem.IRIS_FLOWER_VECTOR_DIMENSION, inputDataItems.Count());
         }
     }
 }
