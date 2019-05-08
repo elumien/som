@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowerNeuralNetworkControl1 = new Self_Organizing_Map.Control.FlowerNeuralNetworkControl();
+            this.flowerNeuralNetworkControl = new Self_Organizing_Map.Control.FlowerNeuralNetworkControl();
             this.baseInputPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iterationLimitNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.initialLearningRateCoefficientNumericUpDown)).BeginInit();
@@ -40,23 +40,27 @@
             // 
             this.baseInputPanel.Location = new System.Drawing.Point(12, 118);
             // 
-            // flowerNeuralNetworkControl1
+            // startButton
             // 
-            this.flowerNeuralNetworkControl1.Location = new System.Drawing.Point(409, 26);
-            this.flowerNeuralNetworkControl1.Name = "flowerNeuralNetworkControl1";
-            this.flowerNeuralNetworkControl1.Size = new System.Drawing.Size(364, 364);
-            this.flowerNeuralNetworkControl1.TabIndex = 1;
+            this.startButton.Click += new System.EventHandler(this.StartButton_Click);
+            // 
+            // flowerNeuralNetworkControl
+            // 
+            this.flowerNeuralNetworkControl.Location = new System.Drawing.Point(409, 26);
+            this.flowerNeuralNetworkControl.Name = "flowerNeuralNetworkControl";
+            this.flowerNeuralNetworkControl.Size = new System.Drawing.Size(364, 364);
+            this.flowerNeuralNetworkControl.TabIndex = 1;
             // 
             // FlowerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 402);
-            this.Controls.Add(this.flowerNeuralNetworkControl1);
+            this.Controls.Add(this.flowerNeuralNetworkControl);
             this.Name = "FlowerForm";
             this.Text = "Flower Self-Organizing Map";
             this.Controls.SetChildIndex(this.baseInputPanel, 0);
-            this.Controls.SetChildIndex(this.flowerNeuralNetworkControl1, 0);
+            this.Controls.SetChildIndex(this.flowerNeuralNetworkControl, 0);
             this.baseInputPanel.ResumeLayout(false);
             this.baseInputPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iterationLimitNumericUpDown)).EndInit();
@@ -69,6 +73,6 @@
 
         #endregion
 
-        private Control.FlowerNeuralNetworkControl flowerNeuralNetworkControl1;
+        private Control.FlowerNeuralNetworkControl flowerNeuralNetworkControl;
     }
 }

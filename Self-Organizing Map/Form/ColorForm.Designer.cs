@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.neuralNetworkControl = new Self_Organizing_Map.Control.ColorNeuralNetworkControl();
+            this.colorNeuralNetworkControl = new Self_Organizing_Map.Control.ColorNeuralNetworkControl();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.fixColorsRadioButton = new System.Windows.Forms.RadioButton();
             this.randomColorsRadioButton = new System.Windows.Forms.RadioButton();
+            this.fixColorsRadioButton = new System.Windows.Forms.RadioButton();
             this.baseInputPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iterationLimitNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.initialLearningRateCoefficientNumericUpDown)).BeginInit();
@@ -48,12 +48,12 @@
             // 
             this.startButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
-            // neuralNetworkControl
+            // colorNeuralNetworkControl
             // 
-            this.neuralNetworkControl.Location = new System.Drawing.Point(394, 21);
-            this.neuralNetworkControl.Name = "neuralNetworkControl";
-            this.neuralNetworkControl.Size = new System.Drawing.Size(364, 364);
-            this.neuralNetworkControl.TabIndex = 1;
+            this.colorNeuralNetworkControl.Location = new System.Drawing.Point(394, 21);
+            this.colorNeuralNetworkControl.Name = "colorNeuralNetworkControl";
+            this.colorNeuralNetworkControl.Size = new System.Drawing.Size(364, 364);
+            this.colorNeuralNetworkControl.TabIndex = 1;
             // 
             // panel1
             // 
@@ -63,6 +63,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(144, 66);
             this.panel1.TabIndex = 2;
+            // 
+            // randomColorsRadioButton
+            // 
+            this.randomColorsRadioButton.AutoSize = true;
+            this.randomColorsRadioButton.Location = new System.Drawing.Point(18, 35);
+            this.randomColorsRadioButton.Name = "randomColorsRadioButton";
+            this.randomColorsRadioButton.Size = new System.Drawing.Size(96, 17);
+            this.randomColorsRadioButton.TabIndex = 1;
+            this.randomColorsRadioButton.TabStop = true;
+            this.randomColorsRadioButton.Text = "Random colors";
+            this.randomColorsRadioButton.UseVisualStyleBackColor = true;
             // 
             // fixColorsRadioButton
             // 
@@ -76,27 +87,16 @@
             this.fixColorsRadioButton.Text = "Fix colors";
             this.fixColorsRadioButton.UseVisualStyleBackColor = true;
             // 
-            // randomColorsRadioButton
-            // 
-            this.randomColorsRadioButton.AutoSize = true;
-            this.randomColorsRadioButton.Location = new System.Drawing.Point(18, 35);
-            this.randomColorsRadioButton.Name = "randomColorsRadioButton";
-            this.randomColorsRadioButton.Size = new System.Drawing.Size(96, 17);
-            this.randomColorsRadioButton.TabIndex = 1;
-            this.randomColorsRadioButton.TabStop = true;
-            this.randomColorsRadioButton.Text = "Random colors";
-            this.randomColorsRadioButton.UseVisualStyleBackColor = true;
-            // 
             // ColorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 402);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.neuralNetworkControl);
+            this.Controls.Add(this.colorNeuralNetworkControl);
             this.Name = "ColorForm";
             this.Text = "Color Self-Organizing Map";
-            this.Controls.SetChildIndex(this.neuralNetworkControl, 0);
+            this.Controls.SetChildIndex(this.colorNeuralNetworkControl, 0);
             this.Controls.SetChildIndex(this.baseInputPanel, 0);
             this.Controls.SetChildIndex(this.panel1, 0);
             this.baseInputPanel.ResumeLayout(false);
@@ -113,7 +113,7 @@
 
         #endregion
 
-        private Control.ColorNeuralNetworkControl neuralNetworkControl;
+        private Control.ColorNeuralNetworkControl colorNeuralNetworkControl;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton randomColorsRadioButton;
         private System.Windows.Forms.RadioButton fixColorsRadioButton;

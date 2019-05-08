@@ -30,23 +30,25 @@ namespace Self_Organizing_Map.Control
             this.Left = (SIZE + SPACING) * neuron.XCoordinate;
             this.Height = SIZE;
             this.Width = SIZE;
-            RefreshNeuron();
+            RefreshNeuron(species);
         }
 
-        /*public void RefreshNeuron()
+        public void RefreshNeuron(String species)
         {
-            switch (FlowerNeuron.)
+            switch (species)
             {
-                case 1:
-                    Console.WriteLine("Case 1");
+                case "setosa":
+                    this.BackColor = Color.Red;
                     break;
-                case 2:
-                    Console.WriteLine("Case 2");
+                case "versicolor":
+                    this.BackColor = Color.Green;
+                    break;
+                case "virginica":
+                    this.BackColor = Color.Blue;
                     break;
                 default:
-                    Console.WriteLine("Default case");
                     break;
             }
-        }*/
+        }
     }
 }

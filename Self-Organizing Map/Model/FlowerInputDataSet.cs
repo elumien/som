@@ -35,11 +35,9 @@ namespace Self_Organizing_Map.Model
 
                     string vmi = values[4];
 
-                    System.Console.WriteLine(vmi);
-
                     vector.SetValues(vectorComponents);
 
-                    inputDataItems.Add(new FlowerInputDataItem(vector, values[FlowerInputDataItem.IRIS_FLOWER_VECTOR_DIMENSION]));
+                    inputDataItems.Add(new FlowerInputDataItem(vector.Normalize(2), values[FlowerInputDataItem.IRIS_FLOWER_VECTOR_DIMENSION]));
                 }
                 reader.Close();
             }

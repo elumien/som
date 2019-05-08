@@ -24,7 +24,7 @@ namespace Self_Organizing_Map
 
         private void StartButton_Click(object sender, EventArgs e)
         {
-            neuralNetworkControl.Controls.Clear();
+            colorNeuralNetworkControl.Controls.Clear();
             SetCommonParametersFromUserInterface();
             ColorInputDataSet colorInputDataSet;
             if (fixColorsRadioButton.Checked)
@@ -37,7 +37,7 @@ namespace Self_Organizing_Map
             } 
             SomAlgorithm somAlgorithm = new SomAlgorithm();
             NeuralNetwork neuralNetwork = somAlgorithm.Run(colorInputDataSet, NEURAL_NETWORK_ROWS, NEURAL_NETWORK_COLUMNS, IterationLimit, InitialStandardDeviation, FinalStandardDeviation, InitialLearningRateCoefficient);
-            neuralNetworkControl.SetNeuralNetwork(neuralNetwork);
+            colorNeuralNetworkControl.SetNeuralNetwork(neuralNetwork);
         }
 
         protected void SetCommonParametersFromUserInterface()
