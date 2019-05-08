@@ -51,6 +51,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control\ColorNeuronControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\ColorNeuronControl.Designer.cs">
+      <DependentUpon>ColorNeuronControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\NeuronControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\NeuronControl.Designer.cs">
+      <DependentUpon>NeuronControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,8 +140,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Control\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

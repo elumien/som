@@ -33,6 +33,13 @@ namespace Self_Organizing_Map
             somAlgorithm.Run(colorInputDataSet, NEURAL_NETWORK_ROWS, NEURAL_NETWORK_COLUMNS, IterationLimit, InitialStandardDeviation, FinalStandardDeviation, InitialLearningRateCoefficient);
         }
 
+        protected void SetCommonParametersFromUserInterface()
+        {
+            IterationLimit = (int)iterationLimitNumericUpDown.Value;
+            InitialStandardDeviation = (double)initialStandardDeviationNumericUpDown.Value;
+            FinalStandardDeviation = (double)finalStandardDeviationNumericUpDown.Value;
+            InitialLearningRateCoefficient = (double)initialLearningRateCoefficientNumericUpDown.Value;
+        }
 
     }
 }
