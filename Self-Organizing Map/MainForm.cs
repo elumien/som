@@ -28,11 +28,5 @@ namespace Self_Organizing_Map
             FlowerForm flowerForm = new FlowerForm();
             flowerForm.Show();
         }
-
-        private void WordButton_Click(object sender, EventArgs e)
-        {
-            WordForm wordForm = new WordForm();
-            wordForm.Show();
-        }
     }
 }

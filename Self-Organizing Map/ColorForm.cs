@@ -58,7 +58,7 @@ namespace Self_Organizing_Map
             return new ColorInputDataSet(inputDataItems, ColorInputDataItem.RGB_COLOR_VECTOR_DIMENSION, 8);
         }
 
-        public static ColorInputDataSet GenerateRandomColorInputDataSet(int inputVectorNumber)
+        private static ColorInputDataSet GenerateRandomColorInputDataSet(int inputVectorNumber)
         {
             List<InputDataItem> inputDataItems = new List<InputDataItem>();
 

@@ -30,12 +30,11 @@
         {
             this.colorButton = new System.Windows.Forms.Button();
             this.flowerButton = new System.Windows.Forms.Button();
-            this.wordButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // colorButton
             // 
-            this.colorButton.Location = new System.Drawing.Point(85, 35);
+            this.colorButton.Location = new System.Drawing.Point(85, 31);
             this.colorButton.Name = "colorButton";
             this.colorButton.Size = new System.Drawing.Size(75, 23);
             this.colorButton.TabIndex = 0;
@@ -45,7 +44,7 @@
             // 
             // flowerButton
             // 
-            this.flowerButton.Location = new System.Drawing.Point(85, 81);
+            this.flowerButton.Location = new System.Drawing.Point(85, 77);
             this.flowerButton.Name = "flowerButton";
             this.flowerButton.Size = new System.Drawing.Size(75, 23);
             this.flowerButton.TabIndex = 1;
@@ -53,22 +52,11 @@
             this.flowerButton.UseVisualStyleBackColor = true;
             this.flowerButton.Click += new System.EventHandler(this.FlowerButton_Click);
             // 
-            // wordButton
-            // 
-            this.wordButton.Location = new System.Drawing.Point(85, 127);
-            this.wordButton.Name = "wordButton";
-            this.wordButton.Size = new System.Drawing.Size(75, 23);
-            this.wordButton.TabIndex = 2;
-            this.wordButton.Text = "Word SOM";
-            this.wordButton.UseVisualStyleBackColor = true;
-            this.wordButton.Click += new System.EventHandler(this.WordButton_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(245, 185);
-            this.Controls.Add(this.wordButton);
+            this.ClientSize = new System.Drawing.Size(245, 131);
             this.Controls.Add(this.flowerButton);
             this.Controls.Add(this.colorButton);
             this.Name = "MainForm";
@@ -82,7 +70,6 @@
 
         private System.Windows.Forms.Button colorButton;
         private System.Windows.Forms.Button flowerButton;
-        private System.Windows.Forms.Button wordButton;
     }
 }
 
