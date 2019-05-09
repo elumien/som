@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,6 +25,7 @@ namespace Self_Organizing_Map
 
         protected void SetCommonParametersFromUserInterface()
         {
+            timeLabel.Text = "";
             IterationLimit = (int)iterationLimitNumericUpDown.Value;
             InitialStandardDeviation = (double)initialStandardDeviationNumericUpDown.Value;
             FinalStandardDeviation = (double)finalStandardDeviationNumericUpDown.Value;

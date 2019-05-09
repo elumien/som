@@ -38,6 +38,7 @@
             this.iterationLimitNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.iterationLimitLimitLabel = new System.Windows.Forms.Label();
             this.startButton = new System.Windows.Forms.Button();
+            this.timeLabel = new System.Windows.Forms.Label();
             this.baseInputPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.finalStandardDeviationNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.initialStandardDeviationNumericUpDown)).BeginInit();
@@ -56,7 +57,7 @@
             this.baseInputPanel.Controls.Add(this.iterationLimitNumericUpDown);
             this.baseInputPanel.Controls.Add(this.iterationLimitLimitLabel);
             this.baseInputPanel.Controls.Add(this.startButton);
-            this.baseInputPanel.Location = new System.Drawing.Point(14, 12);
+            this.baseInputPanel.Location = new System.Drawing.Point(14, 62);
             this.baseInputPanel.Name = "baseInputPanel";
             this.baseInputPanel.Size = new System.Drawing.Size(350, 214);
             this.baseInputPanel.TabIndex = 0;
@@ -198,11 +199,21 @@
             this.startButton.Text = "Start";
             this.startButton.UseVisualStyleBackColor = true;
             // 
+            // timeLabel
+            // 
+            this.timeLabel.AutoSize = true;
+            this.timeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.timeLabel.Location = new System.Drawing.Point(172, 23);
+            this.timeLabel.Name = "timeLabel";
+            this.timeLabel.Size = new System.Drawing.Size(0, 20);
+            this.timeLabel.TabIndex = 1;
+            // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 239);
+            this.ClientSize = new System.Drawing.Size(379, 284);
+            this.Controls.Add(this.timeLabel);
             this.Controls.Add(this.baseInputPanel);
             this.Name = "BaseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -214,6 +225,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.initialLearningRateCoefficientNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iterationLimitNumericUpDown)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -229,5 +241,6 @@
         protected System.Windows.Forms.NumericUpDown finalStandardDeviationNumericUpDown;
         private System.Windows.Forms.Label finalStandardDeviationLabel;
         protected System.Windows.Forms.NumericUpDown initialStandardDeviationNumericUpDown;
+        protected System.Windows.Forms.Label timeLabel;
     }
 }

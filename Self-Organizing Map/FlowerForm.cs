@@ -23,6 +23,7 @@ namespace Self_Organizing_Map
 
         private void StartButton_Click(object sender, EventArgs e)
         {
+            DateTime start = DateTime.Now;
             SetCommonParametersFromUserInterface();
             FlowerInputDataSet flowerInputDataSet = FlowerInputDataSet.CreateFlowerInputDataSetFromCvs();
             SomAlgorithm somAlgorithm = new SomAlgorithm();
@@ -31,6 +32,10 @@ namespace Self_Organizing_Map
             flowerNeuralNetworkControl.NeuralNetwork = neuralNetwork;
             flowerNeuralNetworkControl.FlowerInputDataSet = flowerInputDataSet;
             flowerNeuralNetworkControl.RefreshMap();
+            DateTime stop = DateTime.Now;
+            TimeSpan elapsedTime = new TimeSpan(0);
+            elapsedTime = stop - start;
+            timeLabel.Text = "Time of algorithm run: " + elapsedTime;
         }
     }
 }

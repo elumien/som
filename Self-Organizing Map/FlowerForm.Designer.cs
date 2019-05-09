@@ -45,6 +45,10 @@
             // 
             this.startButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
+            // timeLabel
+            // 
+            this.timeLabel.Location = new System.Drawing.Point(13, 91);
+            // 
             // flowerNeuralNetworkControl
             // 
             this.flowerNeuralNetworkControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -74,6 +78,7 @@
             this.Controls.Add(this.flowerNeuralNetworkControl);
             this.Name = "FlowerForm";
             this.Text = "Flower Self-Organizing Map";
+            this.Controls.SetChildIndex(this.timeLabel, 0);
             this.Controls.SetChildIndex(this.baseInputPanel, 0);
             this.Controls.SetChildIndex(this.flowerNeuralNetworkControl, 0);
             this.Controls.SetChildIndex(this.label1, 0);

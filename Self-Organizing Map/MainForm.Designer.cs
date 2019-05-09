@@ -34,21 +34,21 @@
             // 
             // colorButton
             // 
-            this.colorButton.Location = new System.Drawing.Point(85, 31);
+            this.colorButton.Location = new System.Drawing.Point(48, 34);
             this.colorButton.Name = "colorButton";
-            this.colorButton.Size = new System.Drawing.Size(75, 23);
+            this.colorButton.Size = new System.Drawing.Size(148, 23);
             this.colorButton.TabIndex = 0;
-            this.colorButton.Text = "Color SOM";
+            this.colorButton.Text = "Color Clustering  SOM";
             this.colorButton.UseVisualStyleBackColor = true;
             this.colorButton.Click += new System.EventHandler(this.ColorButton_Click);
             // 
             // flowerButton
             // 
-            this.flowerButton.Location = new System.Drawing.Point(85, 77);
+            this.flowerButton.Location = new System.Drawing.Point(48, 73);
             this.flowerButton.Name = "flowerButton";
-            this.flowerButton.Size = new System.Drawing.Size(75, 23);
+            this.flowerButton.Size = new System.Drawing.Size(148, 23);
             this.flowerButton.TabIndex = 1;
-            this.flowerButton.Text = "Flower SOM";
+            this.flowerButton.Text = "Iris Flower SOM";
             this.flowerButton.UseVisualStyleBackColor = true;
             this.flowerButton.Click += new System.EventHandler(this.FlowerButton_Click);
             // 

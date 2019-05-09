@@ -51,6 +51,10 @@
             // 
             this.startButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
+            // timeLabel
+            // 
+            this.timeLabel.Location = new System.Drawing.Point(13, 59);
+            // 
             // colorNeuralNetworkControl
             // 
             this.colorNeuralNetworkControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -131,6 +135,7 @@
             this.Controls.Add(this.colorNeuralNetworkControl);
             this.Name = "ColorForm";
             this.Text = "Color Self-Organizing Map";
+            this.Controls.SetChildIndex(this.timeLabel, 0);
             this.Controls.SetChildIndex(this.colorNeuralNetworkControl, 0);
             this.Controls.SetChildIndex(this.baseInputPanel, 0);
             this.Controls.SetChildIndex(this.panel1, 0);

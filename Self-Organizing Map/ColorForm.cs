@@ -17,6 +17,7 @@ namespace Self_Organizing_Map
         public const int NEURAL_NETWORK_ROWS = 40;
         public const int NEURAL_NETWORK_COLUMNS = 40;
 
+
         public ColorForm()
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace Self_Organizing_Map
 
         private void StartButton_Click(object sender, EventArgs e)
         {
+            DateTime start = DateTime.Now;
             SetCommonParametersFromUserInterface();
             ColorInputDataSet colorInputDataSet;
             if (fixColorsRadioButton.Checked)
@@ -33,12 +35,16 @@ namespace Self_Organizing_Map
             else
             {
                 colorInputDataSet = GenerateRandomColorInputDataSet(COLOR_NUMBER);
-            } 
+            }
             SomAlgorithm somAlgorithm = new SomAlgorithm();
             somAlgorithm.Run(colorInputDataSet, NEURAL_NETWORK_ROWS, NEURAL_NETWORK_COLUMNS, IterationLimit, InitialStandardDeviation, FinalStandardDeviation, InitialLearningRateCoefficient);
             NeuralNetwork neuralNetwork = somAlgorithm.NeuralNetwork;
             colorNeuralNetworkControl.SetNeuralNetwork(neuralNetwork);
             colorNeuralNetworkControl.RefreshMap();
+            DateTime stop = DateTime.Now;
+            TimeSpan elapsedTime = new TimeSpan(0);
+            elapsedTime = stop - start;
+            timeLabel.Text = "Time of algorithm run: " + elapsedTime;
         }
 
         private static ColorInputDataSet CreateExampleColorInputDataSet()
